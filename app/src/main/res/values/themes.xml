@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Single dynamic-coloured system splash (core-splashscreen).
+         NO Compose overlay splash: the system splash hands straight
+         over to the app theme, so there is never a double splash. -->
+    <style name="Theme.Tm.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">?android:colorAccent</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.Tm</item>
+    </style>
+    <style name="Theme.Tm" parent="android:Theme.Material.NoActionBar" />
+</resources>

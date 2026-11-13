@@ -1,0 +1,22 @@
+[package]
+name = "tm-core"
+version = "1.0.0"
+edition = "2021"
+description = "Rust native core for Transfermóvil Expressive: PAGOxMOVIL SMS parser + USSD builders/validators"
+license = "MIT"
+
+[lib]
+name = "tm_core"
+crate-type = ["rlib", "cdylib"]
+
+[features]
+default = []
+jni = ["dep:jni"]
+
+[dependencies]
+jni = { version = "0.21", optional = true }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
