@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="432" height="432">
+  <!-- Transfermóvil double-arrow mark, redrawn from logo_solo_transfermovil.png.
+       Green arrow up-right (#2CA800), blue arrow down-left (#003DA5).
+       Wordmark: set separately in Google Sans Flex heavy italic (no font
+       was embedded in the original APK). -->
+  <path fill="#2CA800" d="M38,22 L86,22 L86,70 L74,70 L74,40 L47,67 L38,56 L65,32 L38,32 Z"/>
+  <path fill="#003DA5" d="M70,86 L22,86 L22,38 L34,38 L34,68 L61,41 L70,52 L43,76 L70,76 Z"/>
+</svg>
