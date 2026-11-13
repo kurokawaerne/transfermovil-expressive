@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Redrawn Transfermóvil double-arrow mark, in the adaptive safe zone.
+     Green arrow up-right, blue arrow down-left (white on the gradient
+     background so the mark stays legible at launcher size). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#7ED957"
+        android:pathData="M38,22 L86,22 L86,70 L74,70 L74,40 L47,67 L38,56 L65,32 L38,32 Z" />
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M70,86 L22,86 L22,38 L34,38 L34,68 L61,41 L70,52 L43,76 L70,76 Z" />
+</vector>
