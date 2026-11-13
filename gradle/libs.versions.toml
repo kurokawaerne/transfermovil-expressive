@@ -10,8 +10,8 @@ androidx-activity-compose = "1.11.0"
 androidx-core-splashscreen = "1.2.0"
 androidx-core-ktx = "1.17.0"
 zxing = "3.5.3"
-android-compileSdk = "35"
-android-targetSdk = "35"
+android-compileSdk = "36"
+android-targetSdk = "36"
 android-minSdk = "26"
 
 [libraries]
