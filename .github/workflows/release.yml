@@ -1,0 +1,64 @@
+name: release
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag'
+        required: true
+        default: 'v1.0.0'
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+      - name: Test native cores
+        run: |
+          cargo test --manifest-path core-rust/Cargo.toml
+          cmake -S core-c -B core-c/build -DCMAKE_BUILD_TYPE=Release
+          cmake --build core-c/build
+          ./core-c/build/tm_c_test
+      - name: Build Android debug APK (split per ABI + universal)
+        run: ./gradlew :app:assembleDebug
+      - name: Collect assets
+        run: |
+          mkdir -p release-assets
+          python3 - <<'PY'
+          import glob, os, shutil
+          for apk in glob.glob("app/build/outputs/apk/debug/*.apk"):
+              base = os.path.basename(apk)
+              abi = base
+              if abi.startswith("app-"):
+                  abi = abi[4:]
+              if abi == "debug.apk":
+                  abi = "universal"
+              elif abi.endswith("-debug.apk"):
+                  abi = abi[:-len("-debug.apk")]
+              shutil.copy(apk, f"release-assets/TMEx-1.0.0-{abi}.apk")
+          PY
+          cd release-assets && sha256sum *.apk > SHA256SUMS.txt && ls -lh
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ inputs.tag }}
+          name: Transfermóvil Expressive ${{ inputs.tag }}
+          files: release-assets/*
+          body: |
+            ## Transfermóvil Expressive 1.0.0 — Initial release
+
+            Material 3 Expressive (MD3E) rewrite of Transfermóvil 1.260416.
+
+            - Card carousel
+            - PIN fix
+            - PAGOxMOVIL parsed SMS
+            - All services
+            - Agent unlocked
