@@ -1,0 +1,8 @@
+*.iml
+.gradle/
+build/
+local.properties
+.idea/
+core-rust/target/
+core-c/build/
+release-assets/
