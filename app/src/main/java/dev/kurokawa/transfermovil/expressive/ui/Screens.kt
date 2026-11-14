@@ -2,6 +2,7 @@ package dev.kurokawa.transfermovil.expressive.ui
 
 import android.graphics.Bitmap
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
@@ -18,13 +19,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.composables.icons.materialsymbols.MaterialSymbols
 import com.composables.icons.materialsymbols.outlined.*
 import com.composables.icons.materialsymbols.outlinedfilled.*
+import dev.kurokawa.transfermovil.expressive.R
 import dev.kurokawa.transfermovil.expressive.core.QrCode
 import dev.kurokawa.transfermovil.expressive.core.SmsRecord
 import dev.kurokawa.transfermovil.expressive.data.Contacts
@@ -395,7 +399,19 @@ fun SettingsScreen(state: TmState, dark: Boolean, onDark: (Boolean) -> Unit) {
         item {
             Card(Modifier.fillMaxWidth(), shape = RoundedCornerShape(28.dp)) {
                 Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Text("Transfermóvil Expressive", fontWeight = FontWeight.Bold)
+                    // Brand lockup: HeadingNow SVG wordmark outlines + the
+                    // gradient arrow mark, on a white plate (logo as approved).
+                    Row(
+                        Modifier.background(Color.White, RoundedCornerShape(12.dp))
+                            .padding(horizontal = 12.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Image(painterResource(R.drawable.ic_brand_mark), "Transfermóvil", Modifier.size(36.dp))
+                        Spacer(Modifier.width(10.dp))
+                        Image(painterResource(R.drawable.ic_wordmark), "Transfermóvil", Modifier.size(122.dp, 20.dp), contentScale = ContentScale.Fit)
+                        Spacer(Modifier.width(6.dp))
+                        Text("Expressive", fontWeight = FontWeight.Bold, color = Color(0xFF012E85))
+                    }
                     Text("Versión 1.0.0 · Reescritura MD3E de código abierto (MIT). Sin versión-agente: todo activo.",
                         style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 }

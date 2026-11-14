@@ -1,5 +1,6 @@
 package dev.kurokawa.transfermovil.expressive.ui
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -17,6 +18,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -26,6 +28,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import com.composables.icons.materialsymbols.MaterialSymbols
 import com.composables.icons.materialsymbols.outlined.*
 import com.composables.icons.materialsymbols.outlinedfilled.*
+import dev.kurokawa.transfermovil.expressive.R
 import dev.kurokawa.transfermovil.expressive.data.TmDb
 import dev.kurokawa.transfermovil.expressive.model.*
 import dev.kurokawa.transfermovil.expressive.platform.Dialer
@@ -119,8 +122,12 @@ fun HomeScreen(state: TmState) {
     LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
         item {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("TRANSFER", fontWeight = FontWeight.ExtraBold, fontStyle = FontStyle.Italic, color = MaterialTheme.colorScheme.primary, style = MaterialTheme.typography.headlineSmall)
-                Text("MÓVIL", fontWeight = FontWeight.ExtraBold, fontStyle = FontStyle.Italic, color = MaterialTheme.colorScheme.secondary, style = MaterialTheme.typography.headlineSmall)
+                // The real brand wordmark (HeadingNow outlines, Ernest-approved
+                // SVG) on its white brand pill, as on the splash.
+                Box(Modifier.clip(RoundedCornerShape(10.dp)).background(Color.White).padding(horizontal = 10.dp, vertical = 6.dp)) {
+                    Image(painterResource(R.drawable.ic_wordmark), contentDescription = "Transfermóvil",
+                        modifier = Modifier.height(22.dp))
+                }
                 Spacer(Modifier.weight(1f))
                 Text("Expressive", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
