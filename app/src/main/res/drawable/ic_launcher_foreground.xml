@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Redrawn Transfermóvil double-arrow mark, in the adaptive safe zone.
-     Green arrow up-right, blue arrow down-left (white on the gradient
-     background so the mark stays legible at launcher size). -->
+<!-- Transfermóvil double-arrow mark, Google Apps gradient style (2025):
+     the MARK ITSELF carries the gradient — green arrow flowing
+     #8BE04E -> #1E9E00, blue arrow flowing #3D8BFF -> #003DA5 —
+     on the white adaptive background, inside the safe zone. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
     android:width="108dp" android:height="108dp"
     android:viewportWidth="108" android:viewportHeight="108">
-    <path android:fillColor="#7ED957"
-        android:pathData="M38,22 L86,22 L86,70 L74,70 L74,40 L47,67 L38,56 L65,32 L38,32 Z" />
-    <path android:fillColor="#FFFFFF"
-        android:pathData="M70,86 L22,86 L22,38 L34,38 L34,68 L61,41 L70,52 L43,76 L70,76 Z" />
+    <path android:pathData="M38,22 L86,22 L86,70 L74,70 L74,40 L47,67 L38,56 L65,32 L38,32 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:type="linear"
+                android:startX="38" android:startY="70"
+                android:endX="86" android:endY="22"
+                android:startColor="#1E9E00" android:endColor="#8BE04E" />
+        </aapt:attr>
+    </path>
+    <path android:pathData="M70,86 L22,86 L22,38 L34,38 L34,68 L61,41 L70,52 L43,76 L70,76 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:type="linear"
+                android:startX="70" android:startY="38"
+                android:endX="22" android:endY="86"
+                android:startColor="#3D8BFF" android:endColor="#003DA5" />
+        </aapt:attr>
+    </path>
 </vector>
