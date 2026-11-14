@@ -23,6 +23,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.composables.icons.materialsymbols.MaterialSymbols
+import com.composables.icons.materialsymbols.outlined.*
+import com.composables.icons.materialsymbols.outlinedfilled.*
 import dev.kurokawa.transfermovil.expressive.core.QrCode
 import dev.kurokawa.transfermovil.expressive.core.SmsRecord
 import dev.kurokawa.transfermovil.expressive.data.Contacts

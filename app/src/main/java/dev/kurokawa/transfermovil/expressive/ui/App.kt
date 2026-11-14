@@ -24,6 +24,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.text.KeyboardOptions
 import com.composables.icons.materialsymbols.MaterialSymbols
+import com.composables.icons.materialsymbols.outlined.*
+import com.composables.icons.materialsymbols.outlinedfilled.*
 import dev.kurokawa.transfermovil.expressive.data.TmDb
 import dev.kurokawa.transfermovil.expressive.model.*
 import dev.kurokawa.transfermovil.expressive.platform.Dialer

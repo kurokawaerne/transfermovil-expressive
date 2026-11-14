@@ -31,7 +31,7 @@ object SmsNotifier {
             .setContentTitle(title).setContentText(text)
             .setContentIntent(pi).setAutoCancel(true)
         if (Build.VERSION.SDK_INT >= 29) {
-            val bubble = Notification.BubbleMetadata.Builder(pi, R.drawable.ic_brand_mark)
+            val bubble = Notification.BubbleMetadata.Builder(pi, android.graphics.drawable.Icon.createWithResource(ctx, R.drawable.ic_brand_mark))
                 .setDesiredHeight(600)
                 .setAutoExpandBubble(false)
                 .setSuppressNotification(false)
